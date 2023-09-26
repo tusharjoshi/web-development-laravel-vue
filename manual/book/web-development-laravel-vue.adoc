@@ -1,0 +1,26 @@
+Web Development with Laravel and Vue
+====================================
+Tushar Joshi <tusharvjoshi@gmail.com>
+:doctype: book
+:docinfo:
+:toc:
+:toclevels: 2
+:source-highlighter: coderay
+:pagenums:
+:imagesdir: images
+:front-cover-image: image:cover.png[width=1050,height=1600]
+:icons: font
+
+ifdef::ebook-format[:leveloffset: -1]
+
+include::license.adoc[]
+
+include::preface.adoc[]
+
+include::dedication.adoc[]
+
+include::introduction.adoc[]
+
+include::references.adoc[]
+
+ifdef::index[include::index.adoc[]]
