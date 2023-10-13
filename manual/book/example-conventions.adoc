@@ -1,4 +1,0 @@
-[conventions]
-== Example Conventions
-
-TBD

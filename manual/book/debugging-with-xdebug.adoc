@@ -1,0 +1,33 @@
+[[debugging-with-xdebug]]
+== Debugging with XDebug
+
+Details of these steps are available in your XAMPP installation 
+http://apache.test/dashboard/docs/activate-use-xdebug.html
+
+=== Activate and Use Xdebug
+
+Xdebug is a powerful open source debugger and profiler for PHP. It is included with XAMPP and can be used to display stack traces, analyze code coverage and profile your PHP code.
+
+To activate Xdebug, follow these steps:
+
+1. Edit the php.ini file in the `php\` subdirectory of your XAMPP installation directory (usually, `C:\xampp`). Within this file, find the `[XDebug]` section or create it if not there and within it, add the following configuration directive (or modify the existing one):
+
+    [XDebug]
+    xdebug.mode=debug
+    xdebug.start_with_request=yes
+    zend_extension = "C:/xampp/php/ext/php_xdebug.dll"
+
+2. Restart the Apache server using the XAMPP control panel.
+    Xdebug should now be active. To verify this, browse to the URL http://apache.test/dashboard/phpinfo.php, which displays the output of the phpinfo() command. Look through the script and verify that the Xdebug extension is now active.
+3. Ensure the VSCode extension https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug[PHP Debug extension] is installed and active
+4. Click *Run > Add Configuration* and choose PHP in the dropdown list, that will create `.vscode` folder in the project and a `launch.json` file in that folder
+5. Go to the *Run and Debug* panel from left tool box and choose *Listen for Debug* in the top header section of the panel
+6. Press the Run button on the top header sectin to start the debugging
+7. Add breakpoint in the PHP file on the left most part of the editor which will appear as a red dot
+8. Now when we visit the browser and open the same page the breakpoint will be activated and VScode will stop at the debug line
+
+=== References
+
+.Video Tutorial to Setup debugging for PHP8.1 with XDebug 3 in VSCode by The Codaholic
+video::HrQWtbxY1Hs[youtube,900,500]
+

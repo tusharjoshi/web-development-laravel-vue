@@ -1,5 +1,30 @@
 [references]
 == References
 
-* TBD
+* https://docs.emmet.io/abbreviations/syntax/ Emmet Abbreviations Syntax
+* https://docs.emmet.io/cheat-sheet/ Emmet Abbreviations Cheatsheet
+* https://editorconfig.org/ Editor Config
+* https://en.wikipedia.org/wiki/MIT_License MIT License
+
+[plantuml, command-components, png]
+----
+@startmindmap
++ lab01
+++[#Orange] .vscode 
++++_ extensions.json
++++_ launch.json
+++ public
++++_  index.php
+++ tests
++++_ .env
++++_ .env.example
++++_ test.http
+++_ .editorconfig
+++_ .env
+++_ .env.example
+++_ .gitignore
+++_ README.md
+@endmindmap
+----
+
 

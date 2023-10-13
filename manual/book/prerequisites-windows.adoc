@@ -1,0 +1,130 @@
+[[prerequisites-windows]]
+== Prerequisites for Windows
+
+The following software is necessary to complete the instructions in the upcoming pages.
+
+=== Essential software
+
+(((Software prerequisites)))
+Install the following software by visiting the links given below
+
+* https://www.apachefriends.org/[XAMPP]
+** XAMPP is a package of multiple software which will install Apache web server, MySQL database with Perl and PHP support bundled into the Apache server.
+** We will assume the XAMPP is installed in path `c:\xampp`
+* https://nodejs.org/en[NodeJS]
+** NodeJS wil be needed for configuring the Vite environment later in Laravel
+* https://git-scm.com/[GIT]
+** GIT will be used as source control software to maintain source code, make it available for reviews and share
+* https://www.7-zip.org/[7Zip]
+** 7Zip will be used by NodeJS and other package managers to unzip the downloaded files
+* https://getcomposer.org/[Composer]
+** Composer is a package manager for PHP.  We will use this software to install Laravel and its dependencies
+* https://code.visualstudio.com/[Visual Studio Code]
+** VSCode is the preferred integrated development environment (IDE) we will use for learning Web Development.
+* https://learn.microsoft.com/en-us/windows/powertoys/[Microsoft PowerToys]
+** Install Microsoft PowerToys from Microsoft Store which helps in editing the hosts file for virtual host configurations.
+
+=== Configure `apache.test` as hostname for Apache Start page
+
+Using the virtual host configuration the hostname for the Apache web server starting page can be changed from `localhost` to a proper domain name like hostname `apache.test`
+
+We will use this name in all examples in these following sessions and hence it is recommended to configure the Apache server and the hosts file of the operating system to work with that name.
+
+==== Ensure Apache is configured for virtual hosts
+
+Update file `C:\xampp\apache\conf\httpd.conf` and ensure the following lines are uncommented in the file
+
+[%unbreakable,apache]
+----
+Include conf/extra/httpd-vhosts.conf
+----
+
+(((Apache VirtualHost, create)))
+Update the file `httpd-vhosts.conf` and ensure the following code is active in that file.
+
+.C:\xampp\apache\conf\extra\httpd-vhosts.conf
+[%unbreakable,apache]
+----
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/" <1>
+    ServerName apache.test
+</VirtualHost>
+----
+<1> ROOT directory of Apache installation
+
+Update the file `C:\Windows\system32\drivers\etc\hosts` and add following lines at the end.  This file may need administrator permission for modification.
+
+This can also be done by starting the Host File Editor from Microsoft PowerToys as an administrator.
+
+[source]
+----
+127.0.0.1 apache.test
+----
+
+TIP: After this configuration the Apache web server start page will be acessible using the URL http://apache.test/
+
+This URL will be referred for all links for the Apache web server installation.
+
+=== Configure custom directory for serving projects
+
+Apache server can be configured to recognise any custom directory to server web projects.  This configuration can be done by changing the configuration in Apache config files
+
+==== Ensure Apache recognises the custom folder
+
+Locate the Directory element in `httpd.conf` file
+
+[%unbreakable,apache]
+----
+<Directory "C:/xampp/htdocs">
+</Directory>
+----
+
+Assuming `C:/webprojects` as our projects directory, add the following additional directory element for the folder we want to add as additional folder
+
+[%unbreakable,apache]
+----
+<Directory "C:/webprojects">
+    Options Indexes FollowSymLinks Includes ExecCGI
+    AllowOverride All
+    Require all granted
+</Directory>
+----
+
+==== Configure dynamic host pattern for custom folder
+
+Update file `C:\xampp\apache\conf\httpd.conf` and ensure the following lines are uncommented in the file for the dynamic pattern to work.
+
+[%unbreakable,apache]
+----
+LoadModule vhost_alias_module modules/mod_vhost_alias.so
+----
+
+(((Apache VirtualHost, create)))
+Update the file `httpd-vhosts.conf` and ensure the virtual host entry to serve a specific pattern for the web projects at the end of the config file.
+
+.C:\xampp\apache\conf\extra\httpd-vhosts.conf
+[%unbreakable,apache]
+----
+<VirtualHost *:80>
+    ServerAlias *.example.test
+    VirtualDocumentRoot "C:/webprojects/%1/public/" <1>
+</VirtualHost>
+----
+<1> Dynamic hostname pattern we want Apache Web Server to recognize and substitute %1 with the dynamic name
+
+TIP: Ensure the virtual host entry is below the earlier `apache.test` virtual host declaration.
+
+
+[IMPORTANT]
+.For every new folder we need a hosts file entry
+====
+The Apache server is now configured for dynamic wildcard hence any folder we create in the custom folder `c:\webprojects` will work like foldername.example.test with the virtual host configuration on its own.
+
+We need a specific entry for the hosts file for the new folder, as hosts file does not support wildcards yet. Hence it is important to add the new folder name in hosts file like:
+[source]
+----
+127.0.0.1 foldername.example.test
+----
+====
+
+

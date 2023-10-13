@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "devsense.composer-php-vscode",
+        "devsense.intelli-php-vscode",
+        "devsense.phptools-vscode",
+        "xdebug.php-debug",
+        "mehedidracula.php-namespace-resolver",
+        "devsense.profiler-php-vscode",
+        "humao.rest-client",
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens",
+        "onecentlin.laravel5-snippets",
+        "onecentlin.laravel-blade",
+        "ryannaddy.laravel-artisan",
+        "kokororin.vscode-phpfmt"
+    ]
+}

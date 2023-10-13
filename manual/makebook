@@ -1,0 +1,5 @@
+#!/bin/bash
+
+asciidoctor-pdf -r asciidoctor-diagram -a index -D ./build book/web-development-laravel-vue.adoc 
+asciidoctor -r asciidoctor-diagram -a index -D ./public -o index.html book/web-development-laravel-vue.adoc 
+echo "Document creation complete."

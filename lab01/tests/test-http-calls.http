@@ -1,0 +1,54 @@
+@appUrl = {{$dotenv APP_URL}}
+@contentTypeJson = application/json
+@contentTypeForm = application/x-www-form-urlencoded
+@createdAt = {{$datetime iso8601}}
+@modifiedBy = {{$processEnv USERNAME}}
+
+###
+# @prompt username
+GET {{appUrl}}/myphp.php?name={{username}} HTTP/1.1
+
+
+###
+# @prompt username
+POST {{appUrl}}/receivejson.php HTTP/1.1
+content-type: {{contentTypeJson}}
+
+{
+    "name": "{{username}}",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "modifiedBy": "{{modifiedBy}}",
+    "createdAt": "{{createdAt}}"
+}
+
+###
+
+DELETE {{appUrl}}/myphp.php HTTP/1.1
+
+###
+
+PUT {{appUrl}}/myphp.php HTTP/1.1
+
+###
+
+PATCH {{appUrl}}/myphp.php HTTP/1.1
+
+###
+
+HEAD {{appUrl}}/myphp.php HTTP/1.1
+
+###
+
+OPTIONS {{appUrl}}/myphp.php HTTP/1.1
+
+###
+
+POST {{appUrl}}/getjson.php HTTP/1.1
+
+### Sending Form Data in POST request
+
+POST {{appUrl}}/myphp.php HTTP/1.1
+Content-Type: {{contentTypeForm}}
+
+name=foo
+&password=bar

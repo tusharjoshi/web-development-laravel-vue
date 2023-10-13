@@ -44,12 +44,5 @@ yarn-error.log
 # macOS folder configuration attributes
 *DS_Store
 
-
 # generated files
 /public/build
-
-# generated files for manual
-/manual/build
-/manual/public
-.asciidoctor
-

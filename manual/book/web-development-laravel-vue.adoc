@@ -5,22 +5,27 @@ Tushar Joshi <tusharvjoshi@gmail.com>
 :docinfo:
 :toc:
 :toclevels: 2
-:source-highlighter: coderay
+:source-highlighter: rouge
 :pagenums:
 :imagesdir: images
 :front-cover-image: image:cover.png[width=1050,height=1600]
 :icons: font
+:sourcedir: ../..
 
 ifdef::ebook-format[:leveloffset: -1]
 
-include::license.adoc[]
-
-include::preface.adoc[]
-
-include::dedication.adoc[]
-
 include::introduction.adoc[]
 
-include::references.adoc[]
+include::prerequisites-windows.adoc[]
 
+include::debugging-with-xdebug.adoc[]
+
+include::vscode-extensions.adoc[]
+
+// include::php-composer-project.adoc[]
+
+// include::references.adoc[]
+
+ifndef::backend-html5[]
 ifdef::index[include::index.adoc[]]
+endif::backend-html5[]

@@ -1,6 +1,7 @@
 [preface]
 == Introduction
 
+This manual is a compilation of notes while conducting the Honors sessions for Web Development subject in Shri Ramdeo Baba College of Engineering, for second year, third semester students of DS and Cyber Security students for the year 2023 - 2024
 
-=== TBD
+
 

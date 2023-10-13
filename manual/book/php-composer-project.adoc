@@ -1,0 +1,68 @@
+[[first-php-project]]
+== Creating PHP based project using Composer
+
+Create folder `first-project`
+
+[source,console]
+----
+composer init
+
+This command will guide you through creating your composer.json config.
+
+Package name (<vendor>/<name>) [tusharjoshi/first-project]: company/firstproject
+Description []: First PHP Project
+Author [n to skip]: Tushar Joshi
+Minimum Stability []:
+Package Type (e.g. library, project, metapackage, composer-plugin) []: project
+License []: MIT
+
+Define your dependencies.
+
+Would you like to define your dependencies (require) interactively [yes]? no
+Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+Add PSR-4 autoload mapping? Maps namespace "Company\Firstproject" to the entered relative path. [src/, n to skip]: app/
+
+{
+    "name": "company/firstproject",
+    "description": "First PHP Project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Company\\Firstproject\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tushar Joshi"
+        }
+    ],
+    "require": {}
+}
+
+Do you confirm generation [yes]? yes
+----
+
+Create `public` folder 
+Add `index2.php` file as follows
+
+`C:\xampp\htdocs\first-project\public\index2.php`
+[%linenums%unbreakable,php]
+----
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+echo "First PHP Project";
+----
+
+[%linenums,php]
+----
+include::{sourcedir}/lab01/public/testphp.php[]
+----
+
+When we change `composer.json` autoload section we need to run command
+
+[source,console]
+----
+composer dump-autoload
+----

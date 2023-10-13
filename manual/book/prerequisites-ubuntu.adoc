@@ -1,0 +1,11 @@
+[prerequisites ubuntu]
+== Prerequisites Ubuntu
+
+* Install nodejs and npm
+
+[source,shell]
+----
+sudo apt update
+sudo apt install build-essential procps curl file git git-gui nodejs npm
+----
+

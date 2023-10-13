@@ -1,0 +1,27 @@
+[[vscode-extensions]]
+== Visual Studio Code Extensions
+
+We will ensure some essential extensions are instaled in our Visual Studio Code editor.  Create `.vscode` folder if it does not exist in your workspace root, and add a file `extensions.json` with the contents below.
+
+.`.vscode/extensions.json`
+[source,json]
+----
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "devsense.composer-php-vscode",
+        "devsense.intelli-php-vscode",
+        "devsense.phptools-vscode",
+        "xdebug.php-debug",
+        "mehedidracula.php-namespace-resolver",
+        "devsense.profiler-php-vscode",
+        "humao.rest-client",
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens",
+        "onecentlin.laravel5-snippets",
+        "onecentlin.laravel-blade",
+        "ryannaddy.laravel-artisan",
+        "kokororin.vscode-phpfmt"
+    ]
+}
+----

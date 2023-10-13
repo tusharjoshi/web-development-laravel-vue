@@ -4,6 +4,14 @@ The concepts discussed in sessions as well as example source code details.
 
 ## How To Generate the Manual - Building with podman container
 
+### Podman
+
+Ensure [Podman](https://podman.io/) is installed and the following command works
+
+```bash
+podman --version
+```
+
 ### Pull the image for use
 
 ```bash
@@ -20,8 +28,9 @@ podman run -it -v $(pwd):/documents/ docker.io/asciidoctor/docker-asciidoctor
 
 ### Use the following commands to generate books in the container
 
+In the shell which is available after the container starts
+
 ```bash
-asciidoctor-pdf -r asciidoctor-diagram -a index -D ./build book/web-development-laravel-vue.adoc 
-asciidoctor-pdf -r asciidoctor-diagram -a index -D ./build book/web-development-laravel-vue.adoc 
-asciidoctor -r asciidoctor-diagram -D ./build -a data-uri book/web-development-laravel-vue.adoc 
+cd manual
+./makebook
 ```
