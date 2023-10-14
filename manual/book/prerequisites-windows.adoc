@@ -106,7 +106,7 @@ Update the file `httpd-vhosts.conf` and ensure the virtual host entry to serve a
 [%unbreakable,apache]
 ----
 <VirtualHost *:80>
-    ServerAlias *.example.test
+    ServerAlias *.webprojects.test
     VirtualDocumentRoot "C:/webprojects/%1/public/" <1>
 </VirtualHost>
 ----
@@ -118,12 +118,12 @@ TIP: Ensure the virtual host entry is below the earlier `apache.test` virtual ho
 [IMPORTANT]
 .For every new folder we need a hosts file entry
 ====
-The Apache server is now configured for dynamic wildcard hence any folder we create in the custom folder `c:\webprojects` will work like foldername.example.test with the virtual host configuration on its own.
+The Apache server is now configured for dynamic wildcard hence any folder we create in the custom folder `c:\webprojects` will work like foldername.webprojects.test with the virtual host configuration on its own.
 
 We need a specific entry for the hosts file for the new folder, as hosts file does not support wildcards yet. Hence it is important to add the new folder name in hosts file like:
 [source]
 ----
-127.0.0.1 foldername.example.test
+127.0.0.1 foldername.webprojects.test
 ----
 ====
 
